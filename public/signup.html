@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SooBook</title>
+  <link rel="stylesheet" href="css/indexstyle.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="headerline">
+      <header class="header">
+        <a href="index.html" class="mainlogo">
+          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
+        </a>
+      </header>
+      <form>
+        <legend>회원 가입</legend>
+        <div class="user-signup-id">
+          <label for="user-signup-id">아이디</label>
+          <input type="email" id="user-signup-id" required placeholder="guest@example.com">
+        </div>
+        <div class="user-signup-pw">
+          <label for="user-signup-pw">비밀번호</label>
+          <input type="password" id="user-signup-pw" required placeholder="********">
+        </div>
+        <div class="user-signup-nickname">
+          <label for="user-signup-nickname">닉네임</label>
+          <input type="text" id="user-signup-nickname" required placeholder="닉네임 입력">
+        </div>
+        <button type="button" class="btn-signup" onclick="registerUser()">회원가입</button>
+      </form>
+    </div>
+  </div>
+  <script src="js/signup.js"></script>
+</body>
+</html>

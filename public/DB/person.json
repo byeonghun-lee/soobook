@@ -1,0 +1,38 @@
+{
+  "userList": [
+    {
+      "id": 1,
+      "user-id": "hun08@hanmail.net",
+      "user-pw": "dl0811"
+    },
+    {
+      "id": 2,
+      "user-id": "gmj400@hanmail.net",
+      "user-pw": "gong0603"
+    },
+    {
+      "user-id": "test@hanmail.net",
+      "user-pw": "1234",
+      "nickname": "안녕",
+      "id": 3
+    },
+    {
+      "user-id": "test@hanmail.net",
+      "user-pw": "1234",
+      "nickname": "안녕",
+      "id": 4
+    },
+    {
+      "user-id": "haha@hanmail.net",
+      "user-pw": "0811",
+      "nickname": "hunhun",
+      "id": 5
+    },
+    {
+      "user-id": "da@da.com",
+      "user-pw": "1234",
+      "nickname": "안녕",
+      "id": 6
+    }
+  ]
+}

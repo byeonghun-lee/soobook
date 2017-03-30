@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SooBook</title>
+  <link rel="stylesheet" href="css/indexstyle.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="headerline">
+      <header class="header">
+        <a href="index.html" class="mainlogo">
+          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
+        </a>
+      </header>
+    </div>
+    <div class="pageLayout">
+      <div class="searchBarPosition">
+        <!--검색 영역  -->
+        <input type="text" class="bookSearch">
+        <button type="button" class="search-btn" onkeydown = "onKeyDown()">책 검색</button>
+      </div>
+      <div class="search-results"></div>
+
+    </div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>
