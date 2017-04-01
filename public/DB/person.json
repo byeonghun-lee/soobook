@@ -3,12 +3,14 @@
     {
       "id": 1,
       "user-id": "hun08@hanmail.net",
-      "user-pw": "dl0811"
+      "user-pw": "dl0811",
+      "nickname": "병훈"
     },
     {
       "id": 2,
       "user-id": "gmj400@hanmail.net",
-      "user-pw": "gong0603"
+      "user-pw": "gong0603",
+      "nickname": "민정"
     },
     {
       "user-id": "test@hanmail.net",

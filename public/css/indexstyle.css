@@ -1,7 +1,7 @@
 *{
   box-sizing: border-box;
 }
-body, h1{
+body, h1, p{
   margin: 0;
   padding: 0;
 }
@@ -31,7 +31,7 @@ h1{
 }
 .pageLayout{
   width: 90%;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 .hidden, legend{
 	position: absolute;
@@ -41,19 +41,25 @@ form{
   display: flex;
   float: left;
 }
-.btn-login, .btn-sign{
+.insertNickname{
+  float: left;
+}
+.btn-login, .btn-sign, .logOutBtn{
   width: 80px;
   height: 25px;
   margin-left: 5px;
   border: 0;
   border-radius: 3px;
 }
-.btn-login, .addBook, .search-btn{
+.btn-login, .addBook, .search-btn, .logOutBtn{
   background: rgb(101, 189, 186);
   color: white;
   border: 0;
   border-radius: 3px;
   cursor: pointer;
+}
+.addBook{
+  margin-top: 10px;
 }
 .btn-sign{
   background: white;
@@ -115,4 +121,7 @@ video {
 }
 .search-results{
   margin: 20px;
+}
+.insertNickname{
+  color: white;
 }

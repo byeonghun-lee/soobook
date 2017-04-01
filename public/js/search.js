@@ -37,3 +37,10 @@ document.addEventListener('keyup', function(e) {
     bookSearch();
   }
 });
+// 닉네임 들어가는 코드
+(function(global){
+  var userId = document.querySelector('.insertNickname');
+  var userNick = global.sessionStorage.getItem('user_id');
+  console.log("user_id:", userNick);
+  userId.insertAdjacentHTML('afterbegin', userNick);
+})(window);

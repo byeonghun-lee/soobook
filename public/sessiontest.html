@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>session 예제</title>
+  <script>
+    function InsertData() {
+      var inkey = document.getElementById('inkey').value;
+      var invalue = document.getElementById('invalue').value;
+      sessionStorage.setItem(inkey, invalue);
+      document.getElementById('inkey').value="";
+      document.getElementById('invalue').value="";
+    }
+    function SearchData() {
+      var inkey = document.getElementById('getkey').value;
+      var invalue = sessionStorage.getItem(inkey);
+      alert(inkey+"키와 연관된 값은"+invalue);
+      document.getElementById('getKey').value="";
+    }
+
+    function DeleteData() {
+      var inkey = document.getElementById('getkey').value;
+      var invalue = sessionStorage.removeItem(inkey);
+      alert(inkey+"키와 연관된 값은"+invalue);
+    }
+  </script>
+</head>
+<body>
+  <h1>sessionStorage</h1>
+  키(key): <input id="inkey" type="text">
+  값(value): <input id="invalue" type="text">
+  <input type="button" value="저장" onclick="InsertData()"><br /><br />
+  키(key): <input id="getkey" type="text">
+  <input type="button" value="데이터 보기" onclick="SearchData()">
+  <input type="button" value="삭제" onclick="DeleteData()">
+</body>
+</html>
