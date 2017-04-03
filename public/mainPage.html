@@ -20,11 +20,20 @@
     </div>
     <div class="pageLayout centerP">
       <p>책이 존재하지 않습니다.</p>
-      <a href="bookSearch.html"><button type="button" class="addBook">책 추가하기</button></a>
-
+      <!--onclick으로 바꾸자!!!!!!!!!!  -->
+      <a href="bookSearch.html"><button type="button" class="mainAddBook">책 추가하기</button></a>
+      <button type="button" onclick="move()">메인2이동(test)</button>
 
     </div>
   </div>
   <script src="js/mainPage.js"></script>
+
+
+  <!--test 코드  -->
+  <script>
+    function move(){
+      location.href="mainPage2.html";
+    }
+  </script>
 </body>
 </html>

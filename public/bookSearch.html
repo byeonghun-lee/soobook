@@ -19,13 +19,17 @@
       </header>
     </div>
     <div class="pageLayout">
-      <div class="searchBarPosition">
-        <!--검색 영역  -->
-        <input type="text" class="bookSearch">
-        <button type="button" class="search-btn" onkeydown = "onKeyDown()">책 검색</button>
+      <section class="searchResultsArea">
+        <div class="searchBarPosition">
+          <!--검색 영역  -->
+          <input type="text" class="bookSearch">
+          <button type="button" class="search-btn" onkeydown = "onKeyDown()">책 검색</button>
+        </div>
+        <div class="search-results"></div>
+      </section>
+      <div class="saveBook">
+        <button type="button" class="saveBooksBtn">저장</button>
       </div>
-      <div class="search-results"></div>
-
     </div>
 
   </div>

@@ -14,7 +14,7 @@ function bookSearch(){
         var bookInfo = [
           '<div class="resultsBookList">',
             '<img src="' + data.items[i].volumeInfo.imageLinks.thumbnail + '">',
-            '<div>',
+            '<div class="resultsBookListP">',
               '<h3>' + data.items[i].volumeInfo.title + '</h3>',
               '<p>' + data.items[i].volumeInfo.authors + '</p>',
             '</div>',

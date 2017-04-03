@@ -62,4 +62,5 @@ function registerUser(){
   xhr.setRequestHeader("postman-token", "c9be1509-4ada-26b7-e655-71344827a92f");
 
   xhr.send(data);
+  location.href="index.html";
 }

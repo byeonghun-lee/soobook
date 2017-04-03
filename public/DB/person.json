@@ -35,6 +35,18 @@
       "user-pw": "1234",
       "nickname": "안녕",
       "id": 6
+    },
+    {
+      "user-id": "hun0811@h.com",
+      "user-pw": "0811",
+      "nickname": "병병병",
+      "id": 7
+    },
+    {
+      "user-id": "",
+      "user-pw": "",
+      "nickname": "",
+      "id": 8
     }
   ]
 }

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SooBook</title>
+  <link rel="stylesheet" href="css/indexstyle.css">
+  <!--bulma 사용  -->
+  <link rel="stylesheet" href="css/bulma.css">
+  <!--bulma 폰트어썸 연결  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="headerline">
+      <header class="header">
+        <a href="index.html" class="mainlogo">
+          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
+        </a>
+        <div class="userArea">
+          <p class="insertNickname">님 안녕하세요.</p>
+          <button type="button" class="logOutBtn" onclick="logOut()">로그아웃</button>
+        </div>
+      </header>
+    </div>
+    <div class="mainPageContents">
+      <!-- 권수 책장내 검색 -->
+      <section class="mainTop">
+        <p class="insertNickname nameColor">님 은 현재 <span class="aFewBooks">100권을</span> 읽으셨어요.</p>
+        <div class="bookStorageSearchBar">
+          <input type="text" class="bookStorageSearch">
+          <button type="button" class="bookStorageSearchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </section>
+      <section class="bookView">
+        <!-- 뷰순, 별점순, 편집, 책추가 -->
+        <div class="bookViewTop">
+          <div class="bookViewTopView">
+            <select class="viewType">
+              <option>등록순 보기</option>
+              <option>별점순 보기</option>
+            </select>
+            <button type="button" class="viewWay"><i class="fa fa-th fa-2x" aria-hidden="true"></i></button>
+            <button type="button" class="viewWay"><i class="fa fa-th-list fa-2x" aria-hidden="true"></i></button>
+          </div>
+          <div class="bookViewTopBtn">
+            <a class="button is-primary is-outlined">편집</a>
+            <a role="button" href="bookSearch.html" class="button is-primary">+책추가</a>
+          </div>
+        </div>
+
+        <!-- 저장된 책 목록-->
+        <div class="bookStorage">
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+          <div class="bookList">
+            <img src="http://placehold.it/150x218">
+            <div class="bookListP">
+              <h3>책 제목</h3>
+              <p>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
+            </div>
+          </div>
+        </div>
+        <!--책장 페이지  -->
+        <div class="bookViewBottom">
+          <nav class="pagination">
+            <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
+            <a class="pagination-next">Next page</a>
+            <ul class="pagination-list">
+              <li>
+                <a class="pagination-link is-current">1</a>
+              </li>
+              <li>
+                <a class="pagination-link">2</a>
+              </li>
+              <li>
+                <a class="pagination-link">3</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="js/mainPage.js"></script>
+</body>
+</html>
