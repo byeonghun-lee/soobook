@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
+ <meta charset="UTF-8">
+ <title>Website</title>
+ <script>
+   var books = [
+     {name: 'book-A', desc: 'Lorem ipsum dolor.'},
+     {name: 'book-F', desc: 'Далеко-далеко за словесными.'},
+     {name: 'book-H', desc: 'Mujer uno.'},
+     {name: 'book-K', desc: '야무 한글 로렘입숨 로렘입숨이란?.'},
+     {name: 'book-R', desc: 'ipsum dolor.'}
+   ];
+ </script>
+</head>
+<body>
+
+ <div id="app">
+   <ul class="book-list">
+     <li v-for="book in books" @click="selectedBook(book)">
+       <h3>{{book.name}}</h3>
+       <p>{{book.desc}}</p>
+     </li>
+   </ul>
+
+   <hr>
+
+   <div class="selected-book">
+     <ul>
+       <li>{{selected_book.name}}</li>
+       <li>{{selected_book.desc}}</li>
+     </ul>
+   </div>
+ </div>
+
+ <!-- template -->
+
+<script src="https://unpkg.com/vue@2.1.6/dist/vue.js"></script>
+<script>
+ var vm = new Vue({
+   'el': '#app',
+   data: {
+     books: books,
+     selected_book: {
+       name: '',
+       desc: ''
+     }
+   },
+   methods: {
+     selectedBook: function(book){
+       this.selected_book = book;
+     }
+   }
+ })
+</script>
+</body>
+</html>

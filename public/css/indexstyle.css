@@ -159,29 +159,37 @@ video {
   display: flex;
   justify-content: space-between;
 }
-.bookStorage{
+.book-list{
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 0;
+  justify-content: space-between;
 }
 .bookList{
-  display: flex;
   width: 30%;
-  margin: 5px auto;
+  /*퍼센트로 바꾸자~~~~~*/
+  height: 190px;
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 5px 0;
+  white-space: normal;
+  line-height: 1.3rem;
 }
 .bookListP{
   margin-left: 5px;
 }
-/*.plusBook{
-  display: inline-block;
-  text-align: center;
-  width: 80px;
-  line-height: 25px;
-}*/
 .viewWay{
   border: 0;
   background: white;
+  cursor: pointer;
 }
 .bookViewBottom{
   margin: 30px 0;
+}
+.listViewBook{
+  width: 30%;
+  text-align: center;
+}
+.bookTitle{
+  font-size: 1.5rem;
 }
