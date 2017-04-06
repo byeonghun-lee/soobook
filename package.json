@@ -1,8 +1,11 @@
 {
-  "scripts":{
-    "dev":"./node_modules/.bin/json-server public/DB/person.json -w"
+  "scripts": {
+    "dev": "./node_modules/.bin/json-server public/DB/person.json -w"
   },
   "devDependencies": {
     "json-server": "^0.9.6"
+  },
+  "dependencies": {
+    "vue-paginate": "^3.4.0"
   }
 }

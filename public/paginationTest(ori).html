@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SooBook</title>
+  <link rel="stylesheet" href="css/indexstyle.css">
+  <!--bulma 사용  -->
+  <link rel="stylesheet" href="css/bulma.css">
+  <!--bulma 폰트어썸 연결  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/testBookList.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="headerline">
+      <header class="header">
+        <a href="index.html" class="mainlogo">
+          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
+        </a>
+        <div class="userArea">
+          <p class="insertNickname">님 안녕하세요.</p>
+          <button type="button" class="logOutBtn" onclick="logOut()">로그아웃</button>
+        </div>
+      </header>
+    </div>
+    <div class="mainPageContents" id="app">
+      <!-- 권수 책장내 검색 -->
+      <section class="mainTop">
+        <p class="insertNickname nameColor">님 은 현재 <span class="aFewBooks">100권을</span> 읽으셨어요.</p>
+        <div class="bookStorageSearchBar">
+          <input type="text" class="bookStorageSearch">
+          <button type="button" class="bookStorageSearchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+    <div id="wrapper">
+      <datatable :items="items"></datatable>
+    </div>
+    <template id="datatable">
+      <div>
+        <span class="titlepageSize">Pagesize</span>
+        <select v-model="pageSize" @change="changeSelect()" class="pageSize">
+          <option value="3">3 persons per page</option>
+          <option value="6">6 persons per page</option>
+          <option value="9">9 persons per page</option>
+        </select>
+        <table>
+            <tr>
+              <th>Name</th>
+              <th>Prename</th>
+              <th>Age</th>
+            </tr>
+            <tr v-for="item in orderedList" class="row">
+              <td data-th="Name">{{item.name}}</td>
+              <td data-th="Prename">{{item.prename}}</td>
+              <td data-th="Age">{{item.age}}</td>
+            </tr>
+        </table>
+        <div class="pager">
+          <span @click="previousPage" :class="{'inactive' : currentPage == 1}">previous</span>
+          page {{currentPage}} of {{totalPage}} <span @click="nextPage" :class="{'inactive' : currentPage == totalPage}">next</span>
+        </div>
+      </div>
+    </template>
+
+    </div>
+  </div>
+  <script src="js/mainPage.js"></script>
+  <script src="https://unpkg.com/vue@2.1.6/dist/vue.js"></script>
+  <script>
+    Vue.component('datatable',{
+  template:"#datatable",
+  props: ['items'],
+  data: function() {
+    return {
+      pageSize: 3,
+      currentPage: 1,
+      totalPage: 0,
+      showUpto: 3,
+      showFromto: 0,
+    }
+  },
+  computed: {
+    orderedList() {
+
+      var list = this.items.slice(this.showFromto, this.showUpto);
+      this.totalPage = Math.ceil(this.items.length / this.pageSize);
+      return list;
+    }
+  },
+   methods: {
+    changeSelect:function(){
+      this.showUpto = this.pageSize;
+      this.currentPage = 1;
+      this.showFromto = 0;
+    },
+    nextPage:function() {
+      if (this.currentPage != this.totalPage){
+        this.showFromto = (this.currentPage * this.pageSize) ;
+        this.currentPage =  this.currentPage + 1;
+        this.showUpto = (this.currentPage * this.pageSize);
+      }
+    },
+    previousPage:function() {
+      if (this.currentPage != 1){
+        this.showFromto = ((this.currentPage - 2) * this.pageSize) ;
+        this.currentPage =  this.currentPage - 1;
+        this.showUpto = (this.currentPage * this.pageSize);
+      }
+    }
+  },
+})
+
+var app = new Vue({
+  el: "#wrapper",
+  data: {
+    items:[
+          { name: 'Dumbledore', prename: 'Albus', age: '98' },
+          { name: 'Potter', prename: 'Harry', age: '38' },
+          { name: 'Granger', prename: 'Hermine', age: '34' },
+          { name: 'Wesley', prename: 'Ron', age: '36' },
+          { name: 'Strebel', prename: 'Nicole', age: '28' },
+          { name: 'Strebel', prename: 'Susan', age: '26' },
+          { name: 'Strebel', prename: 'Silvia', age: '51' },
+          { name: 'Strebel', prename: 'René', age: '58' },
+          { name: 'Doe', prename: 'John', age: '34' },
+          { name: 'Foe', prename: 'Jane', age: '20' }
+        ]
+    }
+});
+
+  </script>
+</body>
+</html>

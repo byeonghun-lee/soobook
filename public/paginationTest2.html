@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SooBook</title>
+  <link rel="stylesheet" href="css/indexstyle.css">
+  <!--bulma 사용  -->
+  <link rel="stylesheet" href="css/bulma.css">
+  <!--bulma 폰트어썸 연결  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/testBookList.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="headerline">
+      <header class="header">
+        <a href="index.html" class="mainlogo">
+          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
+        </a>
+        <div class="userArea">
+          <p class="insertNickname">님 안녕하세요.</p>
+          <button type="button" class="logOutBtn" onclick="logOut()">로그아웃</button>
+        </div>
+      </header>
+    </div>
+    <div class="mainPageContents" >
+      <!-- 권수 책장내 검색 -->
+      <section class="mainTop">
+        <p class="insertNickname nameColor">님 은 현재 <span class="aFewBooks">100권을</span> 읽으셨어요.</p>
+        <div class="bookStorageSearchBar">
+          <input type="text" class="bookStorageSearch">
+          <button type="button" class="bookStorageSearchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      <div id="app">
+        <h1>Vue-Paginate v3.4</h1>
+        <paginate name="items" :list="items" class="paginate-list">
+          <li v-for="item in paginated('items')">
+            {{ item }}
+          </li>
+        </paginate>
+        <paginate-links for="items" :show-step-links="true"></paginate-links>
+        <paginate-links for="items" :limit="2" :show-step-links="true"></paginate-links>
+        <paginate-links for="items" :simple="{
+              next: 'Next »',
+              prev: '« Back'
+            }"></paginate-links>
+      </div>
+
+    </div>
+  </div>
+  <script src="js/mainPage.js"></script>
+  <script src="https://unpkg.com/vue@2.1.6/dist/vue.js"></script>
+  <script>
+  new Vue({
+    el: '#app',
+    data: {
+      items: ['Item One', 'Item Two', 'Item Three', 'Item Four', 'Item Five', 'Item Six', 'Item Seven', 'Item Eight', 'Item Nine', 'Item Ten', 'Item Eleven', 'Item Twelve', 'Item Thirteen'],
+      paginate: ['items']
+    }
+  })
+
+
+  </script>
+</body>
+</html>
