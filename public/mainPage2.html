@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/bulma.css">
   <!--bulma 폰트어썸 연결  -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/testBookList.js"></script>
 </head>
 <body>
   <div class="wrapper">
@@ -22,7 +23,7 @@
         </div>
       </header>
     </div>
-    <div class="mainPageContents">
+    <div class="mainPageContents" id="app">
       <!-- 권수 책장내 검색 -->
       <section class="mainTop">
         <p class="insertNickname nameColor">님 은 현재 <span class="aFewBooks">100권을</span> 읽으셨어요.</p>
@@ -31,173 +32,132 @@
           <button type="button" class="bookStorageSearchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </section>
-      <section class="bookView">
-        <!-- 뷰순, 별점순, 편집, 책추가 -->
-        <div class="bookViewTop">
-          <div class="bookViewTopView">
-            <select class="viewType">
-              <option>등록순 보기</option>
-              <option>별점순 보기</option>
-            </select>
-            <button type="button" class="viewWay"><i class="fa fa-th fa-2x" aria-hidden="true"></i></button>
-            <button type="button" class="viewWay"><i class="fa fa-th-list fa-2x" aria-hidden="true"></i></button>
-          </div>
-          <div class="bookViewTopBtn">
-            <a class="button is-primary is-outlined">편집</a>
-            <a role="button" href="bookSearch.html" class="button is-primary">+책추가</a>
-          </div>
-        </div>
 
-        <!-- 저장된 책 목록-->
-        <div class="bookStorage">
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
-          <div class="bookList">
-            <img src="http://placehold.it/150x218">
-            <div class="bookListP">
-              <h3>책 제목</h3>
-              <p>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam, expedita ex placeat odio optio doloribus sunt perferendis voluptates quod?</p>
-            </div>
-          </div>
+      <div id="wrapper">
+      <!-- 뷰순, 별점순, 편집, 책추가 -->
+      <div class="bookViewTop">
+        <div class="bookViewTopView">
+          <select class="viewType">
+            <option>등록순 보기</option>
+            <option>별점순 보기</option>
+          </select>
+          <button type="button" class="viewWay" @click="selectDetailView"><i class="fa fa-th-list fa-2x" aria-hidden="true"></i></button>
+          <button type="button" class="viewWay" @click="selectListView"><i class="fa fa-th fa-2x" aria-hidden="true"></i></button>
         </div>
-        <!--책장 페이지  -->
-        <div class="bookViewBottom">
-          <nav class="pagination">
-            <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
-            <a class="pagination-next">Next page</a>
-            <ul class="pagination-list">
-              <li>
-                <a class="pagination-link is-current">1</a>
+        <div class="bookViewTopBtn">
+          <a class="button is-primary is-outlined">편집</a>
+          <a role="button" href="bookSearch.html" class="button is-primary">+책추가</a>
+        </div>
+      </div>
+
+    <!-- <div id="wrapper"> -->
+      <datatable :items="items"></datatable>
+    </div>
+    <template id="datatable">
+      <div>
+        <ul class="book-list">
+              <li
+              class="bookList"
+              v-for="item in orderedList"
+              @click="modalBook(book)"
+              v-if="detailView">
+                  <img :src="item.thumbnail" class="bookCover">
+                  <div class="bookListP">
+                    <h5 class="bookTitle">{{ item.title }}</h5>
+                    <p>{{ item.authors }}</p>
+                    <p>{{ item.starRating }}</p>
+                    <p>{{ item.review }}</p>
+                    <p>{{ item.saveDate }}</p>
+                  </div>
               </li>
-              <li>
-                <a class="pagination-link">2</a>
-              </li>
-              <li>
-                <a class="pagination-link">3</a>
+
+              <li
+              class="listViewBook"
+              v-for="item in orderedList"
+              @click="modalBook(book)"
+              v-if="!detailView">
+                  <img :src="item.thumbnail" class="bookCover">
+                  <div>
+                    <h5 class="bookTitle">{{ item.title }}</h5>
+                    <p>{{ item.starRating }}</p>
+                  </div>
               </li>
             </ul>
-          </nav>
+        <div class="pager">
+          <a class="pagination-previous" @click="previousPage" :class="{'inactive' : currentPage == 1}">previous</a>
+          page {{currentPage}} of {{totalPage}} <a class="pagination-next" @click="nextPage" :class="{'inactive' : currentPage == totalPage}">next</a>
         </div>
-      </section>
+      </div>
+    </template>
+
     </div>
   </div>
   <script src="js/mainPage.js"></script>
+  <script src="https://unpkg.com/vue@2.1.6/dist/vue.js"></script>
+  <script>
+    Vue.component('datatable',{
+  template:"#datatable",
+  props: ['items'],
+  data: function() {
+    return {
+      pageSize: 9,
+      currentPage: 1,
+      totalPage: 0,
+      showUpto: 9,
+      showFromto: 0,
+      detailView: true
+    }
+  },
+  computed: {
+    orderedList() {
+
+      var list = this.items.slice(this.showFromto, this.showUpto);
+      this.totalPage = Math.ceil(this.items.length / this.pageSize);
+      return list;
+    }
+  },
+   methods: {
+    changeSelect:function(){
+      this.showUpto = this.pageSize;
+      this.currentPage = 1;
+      this.showFromto = 0;
+    },
+    nextPage:function() {
+      if (this.currentPage != this.totalPage){
+        this.showFromto = (this.currentPage * this.pageSize) ;
+        this.currentPage =  this.currentPage + 1;
+        this.showUpto = (this.currentPage * this.pageSize);
+      }
+    },
+    previousPage:function() {
+      if (this.currentPage != 1){
+        this.showFromto = ((this.currentPage - 2) * this.pageSize) ;
+        this.currentPage =  this.currentPage - 1;
+        this.showUpto = (this.currentPage * this.pageSize);
+      }
+    }
+  },
+})
+
+var app = new Vue({
+  el: "#wrapper",
+  data: {
+    items:books
+  },
+  methods: {
+    selectListView: function(){
+          this.detailView = false;
+          console.log("listBtn 눌렀다!!");
+          console.log("ListView에서 this:", this);
+        },
+        selectDetailView: function(){
+          this.detailView = true;
+          console.log("detailBtn 눌렀다!!");
+          console.log("DetailView에서 this:", this);
+        }
+  }
+});
+
+  </script>
 </body>
 </html>

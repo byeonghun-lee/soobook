@@ -163,17 +163,20 @@ video {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 10px;
 }
 .bookList{
   width: 30%;
   /*퍼센트로 바꾸자~~~~~*/
   height: 190px;
   display: flex;
-  text-overflow: ellipsis;
   overflow: hidden;
   margin: 5px 0;
   white-space: normal;
   line-height: 1.3rem;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 3px;
 }
 .bookListP{
   margin-left: 5px;
@@ -195,4 +198,8 @@ video {
 }
 .bookStorage{
   margin-top: 20px;
+}
+.pager{
+  height: 150px;
+  padding-top: 10px;
 }
