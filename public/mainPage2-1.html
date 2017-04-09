@@ -2,8 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SooBook</title>
-  <link rel="stylesheet" href="css/indexstyle.css">
+  <link rel="stylesheet" href="css/indexstyle3.css">
   <!--bulma 사용  -->
   <link rel="stylesheet" href="css/bulma.css">
   <!--bulma 폰트어썸 연결  -->
@@ -15,7 +17,7 @@
     <div class="headerline">
       <header class="header">
         <a href="index.html" class="mainlogo">
-          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
+          <img src="images/mainlogo2.png" alt="수북 로고, 클릭시 메인으로가기">
         </a>
         <div class="userArea">
           <p class="insertNickname">님 안녕하세요.</p>
@@ -45,8 +47,8 @@
           <button type="button" class="viewWay" @click="selectListView"><i class="fa fa-th fa-2x" aria-hidden="true"></i></button>
         </div>
         <div class="bookViewTopBtn">
-          <a role="button" class="button is-primary is-outlined">편집</a>
-          <a href="bookSearch.html" class="button is-primary">+책추가</a>
+          <a role="button" class="button is-warning is-outlined">편집</a>
+          <a href="bookSearch.html" class="button is-warning">+책추가</a>
         </div>
       </div>
 
@@ -55,27 +57,33 @@
     </div>
     <template id="datatable">
       <div>
-        <ul class="book-list">
+        <ul class="book-list" v-if="detailView">
               <li
               class="bookList"
               v-for="item in orderedList"
-              @click="modalBook(book)"
-              v-if="detailView">
+              @click="modalBook(book)">
+                <div class="bookListL">
                   <img :src="item.thumbnail" class="bookCover">
-                  <div class="bookListP">
                     <h5 class="bookTitle">{{ item.title }}</h5>
-                    <p>{{ item.authors }}</p>
-                    <p>{{ item.starRating }}</p>
-                    <p>{{ item.review }}</p>
-                    <p>{{ item.saveDate }}</p>
-                  </div>
+                    <p class="bookAuthors">{{ item.authors }}</p>
+                    <!-- <p>{{ item.starRating }}</p> -->
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+                <div class="bookListR">
+                  <p class="bookReview">{{ item.review }}</p>
+                  <p class="bookSaveDate">{{ item.saveDate }}</p>
+                </div>
               </li>
-
+            </ul>
+            <ul v-if="!detailView">
               <li
               class="listViewBook"
               v-for="item in orderedList"
-              @click="modalBook(book)"
-              v-if="!detailView">
+              @click="modalBook(book)">
                   <img :src="item.thumbnail" class="bookCover">
                   <div>
                     <h5 class="bookTitle">{{ item.title }}</h5>
@@ -84,8 +92,9 @@
               </li>
             </ul>
         <div class="pager">
-          <a class="pagination-previous" @click="previousPage" :class="{'inactive' : currentPage == 1}">previous</a>
-          page {{currentPage}} of {{totalPage}} <a class="pagination-next" @click="nextPage" :class="{'inactive' : currentPage == totalPage}">next</a>
+          <a class="button" @click="previousPage" :class="{'inactive' : currentPage == 1}">previous</a>
+          <p class="pageNumber">page {{currentPage}} of {{totalPage}}</p>
+          <a class="button" @click="nextPage" :class="{'inactive' : currentPage == totalPage}">next</a>
         </div>
       </div>
     </template>
@@ -100,10 +109,10 @@
   props: ['items'],
   data: function() {
     return {
-      pageSize: 9,
+      pageSize: 6,
       currentPage: 1,
       totalPage: 0,
-      showUpto: 9,
+      showUpto: 6,
       showFromto: 0,
       detailView: true
     }
@@ -157,6 +166,47 @@ var app = new Vue({
         }
   }
 });
+// 리뷰 글자 짜르기
+function textCut(txt ,len) {
+  if (len == "" || len == null) { 
+         len = 8;
+     }
+    if (txt.length > len) {
+        txt = txt.substr(0, len) + '...';
+    }
+    return txt;
+}
+
+// 코드 리팩토링 필요!!!!!!!!!!!!!!!
+var bookReviews = document.querySelectorAll('.bookReview');
+var bookTitles = document.querySelectorAll('.bookTitle');
+// console.log(bookReviews);
+console.log(bookTitles);
+for (var i = 0; i < bookReviews.length; i++) {
+  // console.log(bookReviews[i].textContent);
+  var bookReviewCut = textCut(bookReviews[i].textContent, 150);
+  // console.log(bookReviewCut);
+  bookReviews[i].textContent = bookReviewCut;
+}
+
+for (var i = 0; i < bookTitles.length; i++) {
+  var bookTitleCut = textCut(bookTitles[i].textContent);
+  bookTitles[i].textContent = bookTitleCut;
+}
+
+// 랜덤 색
+var myColor = new Array('#EA9895', '#E3D4DA', '#B4BEBD', '#FFC140', '#3F7075', '#736069');
+var borderBookCard;
+borderBookCard = document.querySelectorAll('.bookList');
+console.log(borderBookCard);
+for (var i = 0; i < borderBookCard.length; i++) {
+  borderBookCard[i].style.borderLeft = "50px solid"+ randomItem(myColor);
+  console.log(randomItem(myColor));
+}
+
+function randomItem(color) {
+  return color[Math.floor(Math.random() * color.length)];
+}
 
   </script>
 </body>
