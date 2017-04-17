@@ -64,6 +64,8 @@
               @click="modalBook(book)">
                 <div class="bookListL">
                   <img :src="item.thumbnail" class="bookCover">
+                </div>
+                <div class="bookListR">
                     <h5 class="bookTitle">{{ item.title }}</h5>
                     <p class="bookAuthors">{{ item.authors }}</p>
                     <!-- <p>{{ item.starRating }}</p> -->
@@ -72,8 +74,6 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <div class="bookListR">
                   <p class="bookReview">{{ item.review }}</p>
                   <p class="bookSaveDate">{{ item.saveDate }}</p>
                 </div>
@@ -184,7 +184,7 @@ var bookTitles = document.querySelectorAll('.bookTitle');
 console.log(bookTitles);
 for (var i = 0; i < bookReviews.length; i++) {
   // console.log(bookReviews[i].textContent);
-  var bookReviewCut = textCut(bookReviews[i].textContent, 150);
+  var bookReviewCut = textCut(bookReviews[i].textContent, 80);
   // console.log(bookReviewCut);
   bookReviews[i].textContent = bookReviewCut;
 }
@@ -193,20 +193,6 @@ for (var i = 0; i < bookTitles.length; i++) {
   var bookTitleCut = textCut(bookTitles[i].textContent);
   bookTitles[i].textContent = bookTitleCut;
 }
-
-// 랜덤 색
-// var myColor = new Array('#EA9895', '#E3D4DA', '#B4BEBD', '#FFC140', '#3F7075', '#736069');
-// var borderBookCard;
-// borderBookCard = document.querySelectorAll('.bookList');
-// console.log(borderBookCard);
-// for (var i = 0; i < borderBookCard.length; i++) {
-//   borderBookCard[i].style.borderLeft = "50px solid"+ randomItem(myColor);
-//   console.log(randomItem(myColor));
-// }
-//
-// function randomItem(color) {
-//   return color[Math.floor(Math.random() * color.length)];
-// }
 
 
 // 책표지 배경
@@ -218,7 +204,7 @@ for (var i = 0; i < bookBackPosition.length; i++) {
   bookBackPosition[i].style.backgroundImage = "url(" + bookBackground[i].src + ")";
   bookBackPosition[i].style.backgroundSize = "400px";
   bookBackPosition[i].style.zIndex = "2";
-  // bookBackPosition[i].style.opacity = "0.7";
+  // bookBackPosition[i].style.opacity = "0.3";
 }
 console.log(bookBackPosition);
 

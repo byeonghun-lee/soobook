@@ -17,7 +17,7 @@
     <div class="headerline">
       <header class="header">
         <a href="index.html" class="mainlogo">
-          <img src="images/mainlogo2.png" alt="수북 로고, 클릭시 메인으로가기">
+          <img src="images/mainlogo.png" alt="수북 로고, 클릭시 메인으로가기">
         </a>
         <div class="userArea">
           <p class="insertNickname">님 안녕하세요.</p>
@@ -62,8 +62,11 @@
               class="bookList"
               v-for="item in orderedList"
               @click="modalBook(book)">
+              <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
                 <div class="bookListL">
                   <img :src="item.thumbnail" class="bookCover">
+                </div>
+                <div class="bookListR">
                     <h5 class="bookTitle">{{ item.title }}</h5>
                     <p class="bookAuthors">{{ item.authors }}</p>
                     <!-- <p>{{ item.starRating }}</p> -->
@@ -72,8 +75,6 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <div class="bookListR">
                   <p class="bookReview">{{ item.review }}</p>
                   <p class="bookSaveDate">{{ item.saveDate }}</p>
                 </div>
@@ -109,10 +110,10 @@
   props: ['items'],
   data: function() {
     return {
-      pageSize: 6,
+      pageSize: 12,
       currentPage: 1,
       totalPage: 0,
-      showUpto: 6,
+      showUpto: 12,
       showFromto: 0,
       detailView: true
     }
@@ -168,7 +169,7 @@ var app = new Vue({
 });
 // 리뷰 글자 짜르기
 function textCut(txt ,len) {
-  if (len == "" || len == null) { 
+  if (len == "" || len == null) {
          len = 8;
      }
     if (txt.length > len) {
@@ -180,33 +181,36 @@ function textCut(txt ,len) {
 // 코드 리팩토링 필요!!!!!!!!!!!!!!!
 var bookReviews = document.querySelectorAll('.bookReview');
 var bookTitles = document.querySelectorAll('.bookTitle');
-// console.log(bookReviews);
 console.log(bookTitles);
-for (var i = 0; i < bookReviews.length; i++) {
-  // console.log(bookReviews[i].textContent);
-  var bookReviewCut = textCut(bookReviews[i].textContent, 150);
-  // console.log(bookReviewCut);
-  bookReviews[i].textContent = bookReviewCut;
-}
 
-for (var i = 0; i < bookTitles.length; i++) {
-  var bookTitleCut = textCut(bookTitles[i].textContent);
-  bookTitles[i].textContent = bookTitleCut;
-}
+function textLimit() {
+  // console.log(bookReviews);
+  for (var i = 0; i < bookReviews.length; i++) {
+    // console.log(bookReviews[i].textContent);
+    var bookReviewCut = textCut(bookReviews[i].textContent, 50);
+    // console.log(bookReviewCut);
+    bookReviews[i].textContent = bookReviewCut;
+  }
 
+  for (var i = 0; i < bookTitles.length; i++) {
+    var bookTitleCut = textCut(bookTitles[i].textContent);
+    bookTitles[i].textContent = bookTitleCut;
+  }
+}
+textLimit();
 // 랜덤 색
-var myColor = new Array('#EA9895', '#E3D4DA', '#B4BEBD', '#FFC140', '#3F7075', '#736069');
-var borderBookCard;
-borderBookCard = document.querySelectorAll('.bookList');
-console.log(borderBookCard);
-for (var i = 0; i < borderBookCard.length; i++) {
-  borderBookCard[i].style.borderLeft = "50px solid"+ randomItem(myColor);
-  console.log(randomItem(myColor));
-}
-
-function randomItem(color) {
-  return color[Math.floor(Math.random() * color.length)];
-}
+// var myColor = new Array('#EA9895', '#E3D4DA', '#B4BEBD', '#FFC140', '#3F7075', '#736069');
+// var borderBookCard;
+// borderBookCard = document.querySelectorAll('.bookList');
+// console.log(borderBookCard);
+// for (var i = 0; i < borderBookCard.length; i++) {
+//   borderBookCard[i].style.borderLeft = "15px solid"+ randomItem(myColor);
+//   console.log(randomItem(myColor));
+// }
+//
+// function randomItem(color) {
+//   return color[Math.floor(Math.random() * color.length)];
+// }
 
   </script>
 </body>

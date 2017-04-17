@@ -1,8 +1,9 @@
+@import url(fonts.css);
 *{
   box-sizing: border-box;
 }
 body{
-  background: #f2f5f7;
+  background: #f9f9f9;
 }
 body, h1, p{
   margin: 0;
@@ -14,7 +15,7 @@ body, h1, p{
 }
 @media screen and (min-width: 960px) {
 .mainPageContents{
-  width: 1280px;
+  width: 1200px;
   margin: 0 auto;
 }
 a{
@@ -28,14 +29,16 @@ h1{
   width: 200px;
 }
 .headerline{
-  background: #181818;
+  background: rgba(51, 49, 49, 0.73);
 }
 .header{
+  width: 1200px;
   display: flex;
   flex-direction: row;
-  margin: 0 10%;
+  margin: 0 auto;
   padding:1.3rem 0;
   justify-content: space-between;
+  /*position: fixed;*/
 }
 .pageLayout{
   display: flex;
@@ -76,7 +79,7 @@ form{
   border-radius: 3px;
 }
 .btn-login, .mainAddBook, .search-btn, .logOutBtn, .saveBooksBtn, .plusBook{
-  background: #ffef17;
+  background: #198ea7;
   border: 0;
   border-radius: 3px;
   cursor: pointer;
@@ -165,60 +168,73 @@ video {
 .book-list{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 10px;
 }
 .bookList{
   width: 45%;
   display: flex;
-  margin: 30px 30px;
-  line-height: 1.6rem;
+  margin: 30px 0px;
   padding: 5px;
   background: white;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px 0px lightgray;
+  border-radius: 1px;
+  box-shadow: 2px 1px 1px 0px lightgray;
+  position: relative;
+  border-left: 20px solid #ececec;
   /*border-left: 30px solid red;*/
+}
+.fa-ellipsis-v{
+  position: absolute;
+  right: 10px;
+  color: #ccc;
 }
 .bookListL{
   /*position: relative;*/
-  padding-top: 15px;
+  padding-top: 30px;
   text-align: center;
 }
 .bookCover{
-  /*position: absolute;*/
-  /*top: -40px;*/
-  /*left: 23%;*/
-  box-shadow: 3px 3px 3px 0px lightgray;
+  box-shadow: 2px 2px 2px 0px gray;
+  width: 142px;
+  height: 213px;
 }
 .bookTitle{
   /*padding-top: 170px;*/
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #181818;
+  margin: 10px 0;
 }
 .bookAuthors{
   color: #888;
+  font-family: 'Iropke Batang', serif;
+  margin: 15px 0;
 }
 .bookReview{
   color: #999;
+  font-family: 'Iropke Batang', serif;
+  line-height: 2rem;
+  margin: 20px 0;
 }
 .bookSaveDate{
   color: #888;
+  font-family: 'Iropke Batang', serif;
+  margin: 2px 0;
+  padding-top: 5px;
+  border-top: 1px solid #ccc;
 }
-/*.bookListL::after{
-  content: '';
-  display: block;
-  clear: both;
-}*/
+.fa-star{
+  color: rgb(249, 207, 57);
+}
 .bookListL{
-  width: 40%;
+  width: 30%;
 }
 .bookListR{
-  width: 60%;
+  width: 70%;
   padding: 15px;
 }
 .viewWay{
   border: 0;
-  background: #f2f5f7;
+  background: #f9f9f9;
   cursor: pointer;
 }
 .bookViewBottom{
@@ -243,64 +259,5 @@ video {
   border-radius: 3px;
 }
 
-
-}
-@media screen and (max-width: 480px){
-  .header{
-    display: flex;
-    flex-direction: row;
-    margin: 0 10%;
-    padding:1.3rem 0;
-    justify-content: space-between;
-  }
-  .headerline{
-    background: #181818;
-  }
-  .mainlogo img{
-    /*color: white;*/
-    width: 150px;
-  }
-  .pageLayout{
-    display: flex;
-  }
-  .searchResultsArea{
-    width: 80%;
-    margin: 10px 0;
-    display: inline-block;
-  }
-  .bookList{
-    width: 90%;
-    display: flex;
-    margin: 10px 10px;
-    line-height: 1.6rem;
-    padding: 3px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 5px 5px 5px 0px lightgray;
-  }
-  .bookListL{
-    width: 40%;
-  }
-  .bookListR{
-    width: 60%;
-    padding: 5px;
-  }
-  .bookTitle{
-    font-size: 1.2rem;
-    color: #181818;
-  }
-  .bookAuthors{
-    color: #888;
-  }
-  .bookReview{
-    color: #999;
-  }
-  .bookSaveDate{
-    color: #888;
-  }
-  .pager{
-    display: flex;
-    height: 50px;
-  }
 
 }

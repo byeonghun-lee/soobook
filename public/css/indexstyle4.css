@@ -1,8 +1,9 @@
+@import url(fonts.css);
 *{
   box-sizing: border-box;
 }
 body{
-  background: #f2f5f7;
+  background: #f3f3f3;
 }
 body, h1, p{
   margin: 0;
@@ -172,11 +173,9 @@ video {
   width: 45%;
   display: flex;
   margin: 30px 30px;
-  line-height: 1.6rem;
-  padding: 5px;
   background: white;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px 0px lightgray;
+  box-shadow: 3px 3px 3px 0px lightgray;
 }
 .bookListL{
   padding-top: 15px;
@@ -202,15 +201,22 @@ video {
   /*padding-top: 170px;*/
   font-size: 1.2rem;
   color: #181818;
+  font-family: 'Iropke Batang', serif;
+  margin: 5px 0;
 }
 .bookAuthors{
   color: #888;
+  font-family: 'Iropke Batang', serif;
+  margin: 5px 0;
 }
 .bookReview{
   color: #999;
+  line-height: 1.8rem;
+  font-family: 'Iropke Batang', serif;
 }
 .bookSaveDate{
   color: #888;
+  margin: 5px 0;
 }
 /*.bookListL::after{
   content: '';
