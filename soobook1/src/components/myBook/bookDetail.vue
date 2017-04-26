@@ -11,92 +11,91 @@
           <p>저자 : {{item.book.author}}</p>
 
           <!-- star-rating start-->
-          <div class="star-rating">
-            <label
-              class="star-rating__star"
-              v-for="rating in ratings"
-              :class="{ 'is-selected': displayRank(item, rating), 'is-disabled': disabled }"
-              @mouseover="star_over(rating)"
-              @mouseout="star_out"
-              @click="set(rating)">
-            <input
-              class="star-rating star-rating__checkbox"
-              type="radio"
-              :name="name"
-              :value="rating"
-              :required="required"
-              :id="id"
-              :disabled="disabled"
-              v-model="value">
-              ★
-            </label>
-          </div>
+            <div class="star-rating">
+              <label
+                class="star-rating__star"
+                v-for="rating in ratings"
+                :class="{ 'is-selected': displayRank(item, rating), 'is-disabled': disabled, 'is-hoverd': ((value >= rating) && value != null) }"
+                @mouseover="star_over(rating)"
+                @mouseout="star_out"
+                @click="set(rating)">
+              <input
+                class="star-rating star-rating__checkbox"
+                type="radio"
+                :name="name"
+                :value="rating"
+                :required="required"
+                :id="id"
+                :disabled="disabled"
+                v-model="value">
+                ★
+              </label>
+            </div>
           <!-- star-rating end -->
+          </div>
         </div>
-    </div>
       </div>
       <!-- 리뷰부분 -->
       <div class="review" v-for="item in items">
         <form action="#">
-        <template v-if="show">
-        <textarea
-        name="name"
-        rows="10"
-        cols="65"
-        class="review-textarea"
-        placeholder="책을 읽고 느낀 리뷰를 자유롭게 써주세요"
-        v-model="item.comment.content"
+          <template v-if="show">
+          <textarea
+            name="name"
+            rows="10"
+            cols="65"
+            class="review-textarea"
+            placeholder="책을 읽고 느낀 리뷰를 자유롭게 써주세요"
+            :value="bookComment(item, index)"
+            @input="updateBookComment(item, index, $event)"></textarea>
+          </template>
+          <!-- 책리뷰 텍스트 공간 -->
+          <div class="review-text" v-else>
+            <p
+              v-for = "comment in item.comment"
+              class="review-content"
+             :key= "comment.content"
+              >{{comment.content}}</p>
+          </div>
 
+          <!--버튼  -->
 
-        ></textarea>
-        </template>
-
-        <!-- 책리뷰 텍스트 공간 -->
-        <div class="review-text" v-if="!show" >
-          <p
-          v-for = "comment in item.comment"
-          class="review-content"
-         :key= "item.comment.content"
-          >{{item.comment.content}}</p>
-        </div>
-
-        <!--버튼  -->
-
-        <button type="button" v-on:click="addnewReview" v-if="show" >저장하기</button>
-        <div class="edit-set">
-          <button v-if="!show" class="edit-btn" type="button" @click="show=true">수정</button>
-          <button v-if="!show" class="delete-btn" type="button" @click="deleteReview">삭제</button>
-        </div>
+          <button type="button" v-on:click="addnewReview" v-if="show" >저장하기</button>
+          <div class="edit-set">
+            <button v-if="!show" class="edit-btn" type="button" @click="show=true">수정</button>
+            <button v-if="!show" class="delete-btn" type="button" @click="deleteReview">삭제</button>
+          </div>
 
         </form>
-    </div>
+      </div>
     <!-- 책속글귀 부분 -->
       <div class="book-phrase">
         <input
-              v-model="items[0].mark.content"
-              @keyup.enter = "addBookMark"
-              type="text"
-              class="bookmark"
-              placeholder="기억에 남는 책속 글귀를 입력해주세요.">
+          ref="bookmark"
+          v-model="items[0].mark.content"
+          @keyup.enter="addBookMark"
+          type="text"
+          class="bookmark"
+          placeholder="기억에 남는 책속 글귀를 입력해주세요.">
         <button type="button" @click="addBookMark">입력</button>
-        </div>
-        <ul class="phrase-area" >
-          <li
-          v-for=" mark in items[0].mark"
-          :key= "mark.content"
-          >{{mark.content}}
+      </div>
+      <ul class="phrase-area" >
+        <li
+          v-for="(mark,index) in items[0].mark"
+          :key= "mark.content">{{mark.content}}
           <button
-          type="button"
-          @click="deleteBookMark">x</button>
+            type="button"
+            @click="deleteBookMark(index)">x</button>
           <span>{{mark.update_date}}</span>
         </li>
-        </ul>
+      </ul>
     </div>
   </div>
 </div>
 
 </template>
+
 <script>
+import Vue from 'vue';
 export default {
   name: "",
   data: function data() {
@@ -158,6 +157,19 @@ export default {
         'required': Boolean
     },
   methods: {
+    bookComment(item, index) {
+      if (item.comment.length === 0) {
+        return '';
+      } else {
+        return item.comment[index].content;
+      }
+    },
+    updateBookComment(item, index, e) {
+      if (item.comment.length === 0) {
+        item.comment.push({content: ''});
+      }
+      item.comment[index].content = e.target.value;
+    },
     displayRank(item, rating) {
       var star_rating = item.star[0].content;
       return star_rating >= rating;
@@ -209,7 +221,18 @@ export default {
     var mark_input = document.querySelector('.bookmark');
     var mark = document.querySelector('.bookmark').value;
     var token = 'Token ' + getCookie('SoobookToken');
+    var utctime = mark.update_date;
+    var utcLocaltime = moment.utc(utctime).toDate();
+    var localTime = moment(utcLocaltime).local().format('YYYY-MM-DD HH:mm');
+    var _id = Math.floor(Math.random() * 1000);
+    var utctime = localTime;
     var items = this.items;
+    items[0].mark.unshift({update_date:localTime,content:mark, id: _id});
+
+    this.$nextTick(function () {
+      this.$refs.bookmark.value = '';
+    });
+    // Vue.set(items[0].mark, 0, {update_date:localTime,content:mark, id: _id});
     $.ajax({
         url: "https://soobook.devlim.net/api/book/mark/",
         type: 'POST',
@@ -224,28 +247,37 @@ export default {
     })
     .done(function(response) {
         console.log('mark add 성공', response);
+
         // var bookmark = data[i].mark;
         // for(var i = 0; i < mark.length;i++){
         //시간형식 설정
-        var utctime = mark.update_date;
-        var utcLocaltime = moment.utc(utctime).toDate();
-        var localTime = moment(utcLocaltime).local().format('YYYY-MM-DD HH:mm');
-        console.log('localtime',localTime);
-        console.log('글귀추가시간',mark.update_date);
-        // console.log('mark.id',items.mark.id);
-        utctime = localTime;
+        // var utctime = mark.update_date;
+        // var utcLocaltime = moment.utc(utctime).toDate();
+        // var localTime = moment(utcLocaltime).local().format('YYYY-MM-DD HH:mm');
+        // var _id = Math.floor(Math.random() * 1000);
+        // console.log('localtime',localTime);
+        // console.log('글귀추가시간',mark.update_date);
+        // // console.log('mark.id',items.mark.id);
+        //
+        // utctime = localTime;
+        // {update_date:localTime,content:mark, id: _id}
         // items[0].mark[0].content = mark;
-        items[0].mark.unshift({update_date:localTime,content:mark});
+        // items[0].mark.unshift({update_date:localTime,content:mark, id: _id});
         // mark_input='';
+
       })
     .fail(function(response) {
         console.log('fail', response);
         console.log('items', items);
+
     });
       // this.selected_book.bookTexts='';
   },
-  deleteBookMark(){
+  deleteBookMark(index){
     var items = this.items;
+    var id = items[0].mark[index].id;
+    console.log('id:', id);
+    Vue.delete(items[0].mark, index);
     var token = 'Token ' + getCookie('SoobookToken');
     $.ajax({
         url: "https://soobook.devlim.net/api/book/mark/",
@@ -255,13 +287,11 @@ export default {
         },
         dataType: "json",
         data: {
-          //내가 선택한 삭제버튼 찾는법 물어보기
-          mark_id: items[0].mark[0].id
+          mark_id: id
         }
     })
     .done(function(response) {
         console.log('done', response);
-        items[0].mark.splice(0,1);
       })
     .fail(function(response) {
         console.log('fail', response);
@@ -321,9 +351,6 @@ export default {
 }
 </script>
 <style>
-.star-rating{
-
-}
 .star-rating__checkbox {
   position: absolute;
   overflow: hidden;
@@ -342,6 +369,9 @@ export default {
   font-size: 1.5em;
   color: #ABABAB;
   transition: color .2s ease-out;
+}
+.star-rating__star.is-hoverd{
+ color: #FFD700 ;
 }
 .star-rating__star:hover {
   cursor: pointer;
